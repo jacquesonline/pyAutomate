@@ -108,7 +108,7 @@ def main(argv):
     # message = emails.generate(sender, receiver, subject, body, "/tmp/cars.pdf")
     message = emails.generate(sender, receiver, subject, body,
                               "C:\\Users\\jcste\\googleAutomation\\pyAutomate\\pyCarFigures\\cars.pdf")
-    # emails.send(message)
+    emails.send(message)
 
 
 if __name__ == "__main__":

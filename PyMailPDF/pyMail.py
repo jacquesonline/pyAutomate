@@ -41,7 +41,6 @@ with open(attachment_path, 'rb') as ap:
 
 # print(message)
 
-
 mail_server = smtplib.SMTP('smtp.gmail.com:587')
 mail_server.ehlo()
 mail_server.starttls()
