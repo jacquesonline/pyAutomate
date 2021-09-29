@@ -61,14 +61,10 @@ def process_data(data):
 
     sorted_total_years = sorted(popular_cars.items(), reverse=True)
 
-    summary = [
-        "The {} generated the most revenue: ${}".format(
-            format_car(max_revenue["car"]), max_revenue["revenue"]),
-        "The {} had the most sales: ${}".format(
-            format_car(total_sales["car"]), total_sales["sales"]),
-        "The most popular year was {} with {} sales.".format(
-            sorted_total_years[0][0], sorted_total_years[0][1]),
-    ]
+    summary = "The {} generated the most revenue: ${}\n".format(
+        format_car(max_revenue["car"]), max_revenue["revenue"]) + "The {} had the most sales: ${}\n".format(
+        format_car(total_sales["car"]), total_sales["sales"]) + "The most popular year was {} with {} sales.\n".format(
+        sorted_total_years[0][0], sorted_total_years[0][1])
 
     return summary
 
@@ -100,10 +96,11 @@ def main(argv):
     # TODO: send the PDF report as an email attachment
     # sender = "sender@example.com"
     sender = "automation@example.com"
-    receiver = "{}@example.com".format(os.environ.get('USER'))
+    # sender = "automation@example.com"
+    # receiver = "{}@example.com".format(os.environ.get('USER'))
+    receiver = "j.c.steenkamp10@gmail.com"
     subject = "Sales summary for last month"
     body = str(summary)
-    print(body)
 
     # message = emails.generate(sender, receiver, subject, body, "/tmp/cars.pdf")
     message = emails.generate(sender, receiver, subject, body,

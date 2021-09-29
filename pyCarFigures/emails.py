@@ -2,6 +2,7 @@
 
 import email.message
 import mimetypes
+import getpass
 import os.path
 import smtplib
 
@@ -31,6 +32,13 @@ def generate(sender, recipient, subject, body, attachment_path):
 
 def send(message):
     """Sends the message to the configured SMTP server."""
-    mail_server = smtplib.SMTP('localhost')
+    # mail_server = smtplib.SMTP('localhost')
+    # mail_server.send_message(message)
+    # mail_server.quit()
+    mail_server = smtplib.SMTP('smtp.gmail.com:587')
+    mail_server.ehlo()
+    mail_server.starttls()
+    mail_pass = getpass.getpass('Password? ')
+    print(mail_pass)
+    mail_server.login('j.c.steenkamp10@gmail.com', mail_pass)
     mail_server.send_message(message)
-    mail_server.quit()
